@@ -3,6 +3,7 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = new SlashCommandBuilder()
 	.setName('settings')
     .setNameLocalization('ru', 'настройки')
+    .setNameLocalization('uk', 'налаштування')
 
     .setDescription('Settings')
 
