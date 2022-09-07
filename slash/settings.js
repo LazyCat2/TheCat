@@ -1,4 +1,6 @@
-const { SlashCommandBuilder } = require('discord.js');
+const
+    { SlashCommandBuilder } = require('discord.js'),
+    { categories } = require('../utils.js')
 
 module.exports = new SlashCommandBuilder()
 	.setName('settings')
@@ -161,3 +163,5 @@ module.exports = new SlashCommandBuilder()
 	    .setDescriptionLocalization('uk', 'Відправляє повідомлення з кнопкою для веріфікації')
         )
     )
+
+    module.exports.category = categories.settings

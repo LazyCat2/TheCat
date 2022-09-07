@@ -41,6 +41,9 @@ module.exports = {
                 }
             })
     
+    },
+    categories: {
+        main: 1, settings: 2, utils: 3
     }
 };
 getLocalisation = module.exports.getLocalisation;

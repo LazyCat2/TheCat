@@ -1,4 +1,6 @@
-const { SlashCommandBuilder } = require('discord.js');
+const
+    { SlashCommandBuilder } = require('discord.js'),
+    { categories } = require('../utils.js')
 
 module.exports = new SlashCommandBuilder()
     .setName('help')
@@ -6,3 +8,5 @@ module.exports = new SlashCommandBuilder()
 
     .setDescription('Show command list')
     .setDescriptionLocalization('ru', 'Показать список команд')
+
+module.exports.category = categories.main

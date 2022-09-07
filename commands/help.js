@@ -1,40 +1,39 @@
-const { EmbedBuilder, Colors, MessageEmbed, MessageSelectMenu, MessageActionRow } = require('discord.js')
+const 
+   { EmbedBuilder, Colors, MessageEmbed, SelectMenuBuilder, ActionRowBuilder } = require('discord.js'),
+   { bot } = require('../index.js'),
+   { categories } = require('../utils'),
+   fs = require('fs')
 
-const select = new MessageSelectMenu()
-                         .setCustomId("index")
-                         .setPlaceHolder("Ничего")
-                        .addOptions([
-                           {
-                            label: `${codes.info-full}`,
-                            description: `${codes.help-help} \n ${codes.info-help}`,
-                            value: `Первый`
-                           },
-                           {
-                            label: `codes.settings`,
-                            description: `${codes.SettingsAutoRoleJoin-help} \n ${codes.settingsViev-help} \n ${codes.settingsLang-help \n ${codes.settingsAutoRoleButtonsAdd-help} \n ${codes.settingsAutoRoleButtonsDelete-help} \n ${codes.settingsVerificatinSwitch-help} \n 
-                         ${codes.settingsVerificationLength-help} \n ${codes.settingsVerificationSand-help}`,
-                            value: `Второй`
-                           },
-                           {
-                            label: `${codes.utilites}`,
-                            description: `${codes.avatar-help}`,
-                            value: `Третий`
-                           },
-                         ])
-                         
-                         .setMaxValues(1);
-                    const row = new MessageActionRow()
-                    .addComponents(select)
+help = null
+descr = ''
 
-module.exports = async () => {
-  inter.reply({ embeds: [ new EmbedsBuilder()
-                         .setColor('2617db')
-                         .setTitle( `${codes.rules}`)
-                         .setThumbnail(bot.user.id)
-                         .setDescription(` ${codes.help-help} \n ${codes.avatar-help} \n ${codes.info-help} \n ${codes.SettingsAutoRoleJoin-help} \n ${codes.settingsViev-help} \n 
-                         ${codes.settingsLang-help} \n ${codes.settingsAutoRoleButtonsAdd-help} \n ${codes.settingsAutoRoleButtonsDelete-help} \n ${codes.settingsVerificatinSwitch-help} \n 
-                         ${codes.settingsVerificationLength-help} \n ${codes.settingsVerificationSand-help}`)
-                         ], components:[row] });
-                         
-                      });
+const select = (codes) => { 
+  options = []
+
+for (cmd of fs.readdirSync('../slash').filter(file => file.endsWith('.js') && file != 'init.js')) {
+  cmd = require(`../slash/${cmd}`)
+  options.push({
+    label: codes[cmd.category + '_category'],
+    value: cmd.category
+  })
+  descr += cmd.name + '\n'
+}
+
+  return new SelectMenuBuilder()
+  .setCustomId("index")
+  .setPlaceholder("Выбери категорию")
+ .addOptions(options)
+  
+  .setMaxValues(1);
+}
+module.exports = async (inter, codes) => {
+  row = select(codes)
+  inter.reply({ embeds: [ new EmbedBuilder()
+                         .setColor(Colors.Blurple)
+                         .setTitle( `codes.rules`)
+                         .setThumbnail(bot.user.avatarURL())
+                         .setDescription(descr)
+                         ], components:[new ActionRowBuilder()
+                           .addComponents(row)] });
+}
                          

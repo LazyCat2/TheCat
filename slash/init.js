@@ -10,10 +10,13 @@ const
 	clientId = process.env.client_id,
 	guildId = '927860273388343306';
 
+
 for (const file of commandFiles) {
 	const command = require(`./${file}`)
 		.setDMPermission(false)
+	
 	console.log(command.name)
+	console.log(command.category)
 	commands.push(command.toJSON());
 }
 
