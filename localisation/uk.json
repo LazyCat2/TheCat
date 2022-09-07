@@ -22,5 +22,19 @@
     "start_time": "Запущено",
     "message_jump": "Перейти до повідомлення",
     "settings_changed": "Налаштування було змінено",
-    "avatar": "Аватар у"
+    "avatar": "Аватар у",
+    "help-help" : "/хелп"
+    "info-help":"/інфо",
+    "avatar-help": "/аватар",
+    "SettingsAutoRoleJoin-help": "/налаштування авто-роль приєднання ",
+    "SettingsViev-help": "/налаштування показати",
+    "settingsLang-help": "/налаштування мова",
+    "settingsAutoRoleButtonsAdd-help": "/налаштування авто-роль кнопки-добавити",
+    "settingsAutoRoleButtonsDelete-help": "/налаштування авто-роль кнопки-прибрати"
+    "settingsVerificatinSwitch-help": "/налаштування веріфікація переключити",
+    "settingsVerificationLength-help": "/налаштування веріфікація довжина",
+    "settingsVerificationSand-help": "/веріфікація відправити",
+    "info-full": "Інформація",
+    "settings": "Налаштування",
+    "utilites": "Утилиты"
 }
