@@ -6,6 +6,8 @@ module.exports = new SlashCommandBuilder()
     .setNameLocalization('uk', 'налаштування')
 
     .setDescription('Settings')
+    .setDescriptionLocalization('ru', 'Настройки')
+    .setDescriptionLocalization('uk', 'Налаштування')
 
     .setDefaultPermission(false)
 
