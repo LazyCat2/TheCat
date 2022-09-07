@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/LazyCat2/TheCat.git"
   },
-  "author": "LazyCat",
-  "license": "ISC",
+  "author": "LazyCat2",
+  "license": "GNU General Public License v2.0",
   "bugs": {
     "url": "https://github.com/LazyCat2/TheCat/issues"
   },
